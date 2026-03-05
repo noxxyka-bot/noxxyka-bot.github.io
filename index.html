@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Noxxyka</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900"
+    rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta property="og:title" content="Neonity" />
+  <meta property="og:type" content="website" />
+  <meta name="description" content="A technológia mindenkié." />
+  <meta />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:url" content="https://neonity.hu" />
+  <meta name="theme-color" content="#6700ff" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="color-scheme" content="dark only">
+</head>
+
+<body>
+  <div class="container">
+    <img class="profile-img" src="noxyka.png" alt="Profile">
+
+    <h1>Noxxyka</h1>
+    <p class="tagline">A technológia mindenkié.</p>
+
+    <div class="links">
+      <a class="link-btn" href="https://www.youtube.com/@Noxxyka_ontop">Youtube</a>
+      <a class="link-btn" href="https://discord.gg/ydZ62dVHmb">Discord</a>
+      <a class="link-btn" href="https://www.tiktok.com/@noxxyka">Tiktok</a>
+    </div>
+
+    <div class="faq">
+      <h3>Legújabb videóm</h3>
+
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/UZ6gRiYWVkA" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <div id="cookieBanner">
+    Ez a weboldal cookie-kat használ a jobb működés érdekében.
+    <button onclick="acceptCookies()">Elfogadom</button>
+  </div>
+
+  <script>
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      let nameEQ = name + "=";
+      let ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    function acceptCookies() {
+      setCookie("cookieAccepted", "true", 365);
+      document.getElementById("cookieBanner").style.display = "none";
+    }
+
+    // Check if cookies were already accepted
+    if (getCookie("cookieAccepted") === "true") {
+      document.getElementById("cookieBanner").style.display = "none";
+    }
+  </script>
+</body>
+
+</html>
